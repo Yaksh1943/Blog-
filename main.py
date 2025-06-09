@@ -1,8 +1,8 @@
 from flask import Flask, render_template
 import requests
 
-# USE YOUR OWN npoint LINK! ADD AN IMAGE URL FOR YOUR POST. 👇
-posts = requests.get("https://api.npoint.io/c790b4d5cab58020d391").json()
+
+posts = requests.get("https://api.npoint.io/70b62aa058fa9de9d93a").json()
 
 app = Flask(__name__)
 
@@ -21,7 +21,6 @@ def about():
 def contact():
     return render_template("contact.html")
 
-
 @app.route("/post/<int:index>")
 def show_post(index):
     requested_post = None
@@ -32,4 +31,4 @@ def show_post(index):
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5001)
+    app.run(debug=True)
